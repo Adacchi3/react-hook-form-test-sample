@@ -53,6 +53,11 @@ const Form = () => {
           {...register('date')}
           className="form-input input-bordered input w-full max-w-xs"
         />
+        <label className="label">
+          <span className="label-text-alt text-red-400">
+            {errors['date']?.message}
+          </span>
+        </label>
       </div>
       <div className="form-control mt-4 w-full max-w-xs">
         <button type="submit" className="btn-primary btn" disabled={!isValid}>
