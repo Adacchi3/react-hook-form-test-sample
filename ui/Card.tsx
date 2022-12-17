@@ -7,18 +7,22 @@ type Props = {
 }
 
 const Card: React.FC<Props> = ({ todo }) => {
-  const complatedTodo = todoManager.useCompletedTodo()
+  const completedTodo = todoManager.useCompletedTodo()
 
   return (
     <div className="card bg-base-100 shadow-xl">
       <div className="card-body">
-        <h2 className="card-title">{todo.title}</h2>
-        <p>{todo?.description}</p>
-        <p className="">{todo?.date}</p>
+        <h2 className="card-title" data-testid="todo-title">
+          {todo.title}
+        </h2>
+        <p data-testid="todo-description">{todo?.description}</p>
+        <p className="" data-testid="todo-date">
+          {todo?.date}
+        </p>
         <div className="card-actions justify-end">
           <button
             className="btn-secondary btn"
-            onClick={() => complatedTodo(todo.id)}
+            onClick={() => completedTodo(todo.id)}
           >
             完了
           </button>
