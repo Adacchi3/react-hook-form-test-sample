@@ -1,9 +1,17 @@
 'use client'
 import { useForm } from 'react-hook-form'
-import { TodoInput } from '@/lib/types/TodoInput'
+import { zodResolver } from '@hookform/resolvers/zod'
+import { TodoInput, TodoInputSchema } from '@/lib/types/TodoInput'
 
 const Form = () => {
-  const { register, handleSubmit } = useForm<TodoInput>()
+  const {
+    register,
+    handleSubmit,
+    formState: { errors, isValid },
+  } = useForm<TodoInput>({
+    mode: 'onChange',
+    resolver: zodResolver(TodoInputSchema),
+  })
   const onSubmit = handleSubmit((data) => console.log(data))
 
   return (
@@ -11,6 +19,7 @@ const Form = () => {
       <div className="form-control w-full max-w-xs">
         <label className="label">
           <span className="label-text">TODO</span>
+          <span className="label-text-alt">必須</span>
         </label>
         <input
           type="text"
@@ -19,7 +28,9 @@ const Form = () => {
           className="form-input input-bordered input w-full max-w-xs"
         />
         <label className="label">
-          <span className="label-text-alt">必須</span>
+          <span className="label-text-alt text-red-400">
+            {errors['title']?.message}
+          </span>
         </label>
       </div>
       <div className="form-control">
@@ -37,13 +48,14 @@ const Form = () => {
           <span className="label-text">締切</span>
         </label>
         <input
-          type="date"
+          type="text"
+          placeholder="yyyy/mm/dd"
           {...register('date')}
           className="form-input input-bordered input w-full max-w-xs"
         />
       </div>
       <div className="form-control mt-4 w-full max-w-xs">
-        <button type="submit" className="btn-primary btn">
+        <button type="submit" className="btn-primary btn" disabled={!isValid}>
           登録
         </button>
       </div>
