@@ -1,5 +1,5 @@
 import Card from '@/ui/Card'
-import Form from '@/ui/Form'
+import Form from '@/ui/form/Form'
 
 export default function Page() {
   return (
