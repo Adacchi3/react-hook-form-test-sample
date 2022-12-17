@@ -1,7 +1,7 @@
 import * as zod from 'zod'
 import { type Todo } from './Todo'
 
-export type TodoInput = Omit<Todo, 'createdAt'>
+export type TodoInput = Omit<Todo, 'id' | 'createdAt'>
 
 export const TodoInputSchema = zod.object({
   title: zod.string().min(1),

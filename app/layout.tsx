@@ -1,5 +1,8 @@
+'use client'
+
 import '@/styles/dist.css'
 import React from 'react'
+import { RecoilRoot } from 'recoil'
 
 export default function RootLayout({
   children,
@@ -12,7 +15,7 @@ export default function RootLayout({
         <title>TODO sample</title>
       </head>
       <body className="min-h-screen overflow-y-scroll bg-zinc-200">
-        {children}
+        <RecoilRoot>{children}</RecoilRoot>
       </body>
     </html>
   )

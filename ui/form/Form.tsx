@@ -5,6 +5,7 @@ import { TodoInput, TodoInputSchema } from '@/lib/types/TodoInput'
 import TitleInputField from './fields/TitleInputField'
 import DescriptionTextArea from './fields/DescriptionTextArea'
 import DateInputField from './fields/DateInputField'
+import { todoManager } from '@/lib/stores/Todo'
 
 const Form = () => {
   const methods = useForm<TodoInput>({
@@ -13,7 +14,11 @@ const Form = () => {
   })
   const handleSubmit = methods.handleSubmit
   const isValid = methods.formState.isValid
-  const onSubmit = handleSubmit((data) => console.log(data))
+  const setTodo = todoManager.useSetTodo()
+  const onSubmit = handleSubmit((data) => {
+    setTodo(data)
+    methods.reset()
+  })
 
   return (
     <FormProvider {...methods}>
