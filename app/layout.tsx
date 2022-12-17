@@ -11,7 +11,9 @@ export default function RootLayout({
       <head>
         <title>Next.js Turbopack App Directory Playground</title>
       </head>
-      <body className="overflow-y-scroll bg-zinc-900">{children}</body>
+      <body className="min-h-screen overflow-y-scroll bg-zinc-200">
+        {children}
+      </body>
     </html>
   )
 }

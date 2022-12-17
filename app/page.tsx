@@ -1,7 +1,15 @@
+import Card from '@/ui/Card'
+import Form from '@/ui/Form'
+
 export default function Page() {
   return (
-    <div className="space-y-6">
-      <div className="space-y-8 text-white">test</div>
+    <div className="flex items-center justify-center">
+      <div className="my-4 space-y-6">
+        <Form />
+        <Card />
+        <Card />
+        <Card />
+      </div>
     </div>
   )
 }
