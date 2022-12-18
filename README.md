@@ -1,2 +1,2 @@
-# react-hook-form-test-sample
-testing-library test sample of react-hook-form
+# testing-library-sample
+testing-library sample
