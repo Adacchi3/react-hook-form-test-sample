@@ -34,10 +34,20 @@ describe('Form', () => {
   })
 
   describe('バリデーションエラーのメッセージ', () => {
-    test('締切', async () => {
-      render(<Form />)
+    test('緊急を入力するとき', async () => {
+      const { rerender } = render(<Form />)
       await userEvent.type(screen.getByTestId('dateInputField'), '緊急')
+      rerender(<Form />)
       expect(screen.getByTestId('dateErrorMessage')).toHaveTextContent(
+        'Invalid',
+      )
+    })
+
+    test('2022/01/01を入力するとき', async () => {
+      const { rerender } = render(<Form />)
+      await userEvent.type(screen.getByTestId('dateInputField'), '2022/01/01')
+      rerender(<Form />)
+      expect(screen.getByTestId('dateErrorMessage')).not.toHaveTextContent(
         'Invalid',
       )
     })
