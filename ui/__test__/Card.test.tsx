@@ -12,9 +12,9 @@ test('TODOのすべての項目が埋まっているとき', async () => {
   }
   render(<Card todo={todo} />)
 
-  expect(screen.getByTestId('todo-title')).toHaveTextContent(todo.title)
+  expect(screen.getByTestId('todo-title')).toHaveTextContent('title')
   expect(screen.getByTestId('todo-description')).toHaveTextContent(
-    todo.description,
+    'description',
   )
-  expect(screen.getByTestId('todo-date')).toHaveTextContent(todo.date)
+  expect(screen.getByTestId('todo-date')).toHaveTextContent('2022/01/01')
 })
