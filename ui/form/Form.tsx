@@ -27,7 +27,12 @@ const Form = () => {
         <DescriptionTextArea />
         <DateInputField />
         <div className="form-control mt-4 w-full max-w-xs">
-          <button type="submit" className="btn-primary btn" disabled={!isValid}>
+          <button
+            type="submit"
+            className="btn-primary btn"
+            disabled={!isValid}
+            data-testid="submitButton"
+          >
             登録
           </button>
         </div>

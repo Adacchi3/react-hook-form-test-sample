@@ -18,6 +18,7 @@ const TitleInputField = () => {
         placeholder="やること"
         {...register('title')}
         className="form-input input-bordered input w-full max-w-xs"
+        data-testid="titleInputField"
       />
       <label className="label">
         <span className="label-text-alt text-red-400">

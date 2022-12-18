@@ -13,6 +13,7 @@ const DescriptionTextArea = () => {
         className="form-textare textarea-bordered textarea h-24"
         {...register('description')}
         placeholder=""
+        data-testid="descriptionTextArea"
       ></textarea>
     </div>
   )

@@ -17,9 +17,13 @@ const DateInputField = () => {
         placeholder="yyyy/mm/dd"
         {...register('date')}
         className="form-input input-bordered input w-full max-w-xs"
+        data-testid="dateInputField"
       />
       <label className="label">
-        <span className="label-text-alt text-red-400">
+        <span
+          className="label-text-alt text-red-400"
+          data-testid="dateErrorMessage"
+        >
           {errors['date']?.message}
         </span>
       </label>
